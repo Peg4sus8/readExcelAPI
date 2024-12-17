@@ -52,6 +52,7 @@ def filter_ia_progetti():
     filtered_data = [row for row in data if str(row.get(column, "")).lower() == value.lower()]
     return jsonify({"status": "success", "filtered_data": filtered_data})
 
-# Avvio del server Flask
+# Configura l'app Flask per ascoltare su 0.0.0.0 e sulla porta specificata
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Usa la variabile PORT o la porta 5000 come default
+    app.run(host='0.0.0.0', port=port)
