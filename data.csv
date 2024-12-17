@@ -1,0 +1,36 @@
+Pos,Macroattività,Jr Servizi,Dev Servizi,An Servizi,Sr Servizi,Expert Servizi,Tech. 1,Giorni,Costo,Prezzo
+1,Assessment as-is,,,5,,,,5,1537.0500000000002,2364.6923076923076
+2,Analisi,,,8,,,,8,2459.28,3783.507692307692
+3,Design,24,,,6,,,30,7865.34,12100.523076923077
+4,Creazione e assegnazione macro-gruppi per Facilitatori - BE,,6,,,,,6,1641.78,2525.815384615384
+4,Creazione e assegnazione macro-gruppi per Facilitatori - FE,8,,,2,,,10,2621.7799999999997,4033.507692307692
+4,Gestione modifica e cancellazione macro-gruppi,5,,,,,,5,1211.25,1863.4615384615383
+4,Viste in sola lettura su analisi e percorsi,5,,,,,,5,1211.25,1863.4615384615383
+4,Export dati,,,,2,,,2,683.78,1051.9692307692305
+4,Creazione gruppi Partecipanti - Dashboard - BE,,6,,,,,6,1641.78,2525.815384615384
+4,Creazione gruppi Partecipanti - Dashboard - FE,12,,,3,,,15,3932.67,6050.261538461538
+4,Flow di tuning e gestione algoritmo per selezione clusterizzazione definitiva,3,,,2,,,5,1410.53,2170.0461538461536
+4,Modifica manuale su gruppi creati da algoritmo. Arricchimento dati,8,,,2,,,10,2621.7799999999997,4033.507692307692
+4,Schermata di overview e collegamento con percorsi singoli e di gruppo,5,,,,,,5,1211.25,1863.4615384615383
+4,Assegnazione profili a gruppi e gestione target di transizione,6,,,4,,,10,2821.06,4340.092307692307
+4,Visualizzazione percorso - BE,,2,,,,,2,547.26,841.9384615384614
+4,Visualizzazione percorso - FE,2,,,,,,2,484.5,745.3846153846154
+5,QA,7,,,,,,7,1695.75,2608.846153846154
+6,Doc,,,5,,,,5,1537.0500000000002,2364.6923076923076
+,,,,,,,,0,0,0
+,,,,,,,,0,0,0
+,,,,,,,,0,0,0
+,,,,,,,,0,0,0
+,,,,,,,,0,0,0
+,,,,,,,,0,0,0
+,,,,,,,,0,0,0
+,,,,,,,,0,0,0
+,,,,,,,,0,0,0
+,,,,,,,,0,0,0
+,,,,,,,,0,0,0
+,,,,,,,,0,0,0
+,,,,,,,,0,0,0
+,,,,,,,,0,0,0
+,,85,14,18,21,0,0,138,37135.14,57130.984615384616
+,,20591.25,3830.8199999999997,5533.38,7179.69,0,0,,,
+,,31678.846153846152,5893.56923076923,8512.892307692307,11045.67692307692,0,0,,,
