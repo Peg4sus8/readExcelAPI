@@ -1,31 +1,46 @@
 import os
+from io import BytesIO
+import requests
 from flask import Flask, jsonify, request
 import pandas as pd
 
 app = Flask(__name__)
 
 # Percorso del file Excel (deve essere aggiornato con il tuo percorso locale)
-EXCEL_FILE = "C:\PRIVATO\Lavoro\Aheda - C M base r1.xlsx"
+EXCEL_URL = "https://aizoon365.sharepoint.com/:x:/r/sites/GESTIONEMATRICECOMPETENZE/_layouts/15/Doc.aspx?sourcedoc=%7BB2B301FF-0A60-4F04-AC67-B805AB48E080%7D&file=Aheda%20-%20C%20M%20base%20r1.xlsx&action=default&mobileredirect=true"
 SHEET_NAME = "IA Progetti"
 
 # Funzione per leggere il foglio Excel
 def read_excel_data():
-    # Legge i dati dal foglio "IA Progetti"
     try:
-        data = pd.read_excel(EXCEL_FILE, sheet_name=SHEET_NAME, engine='openpyxl')
+        # Scarica il file Excel online
+        response = requests.get(EXCEL_URL)
+        response.raise_for_status()  # Controlla eventuali errori HTTP
+
+        # Converte il contenuto scaricato in un oggetto BytesIO
+        excel_data = BytesIO(response.content)
+
+        # Legge i dati dal foglio Excel specifico
+        data = pd.read_excel(excel_data, sheet_name=SHEET_NAME, engine='openpyxl')
+
+        # Rinomina le colonne
         data.columns = ["x", "Pos", "Macroattività", "x", "Jr Servizi", "Dev Servizi", "An Servizi", "Sr Servizi", "Expert Servizi",
                         "Tech. 1", "Giorni", "Costo", "Prezzo"]
+
+        # Rimuove le colonne non necessarie
         data = data.drop(columns=["x"])
-        data = data.drop(index=range(0,4))
-        json = pd.DataFrame(data)
-        json.to_json("output.json", orient="records", indent=4)
-        return data.to_dict(orient="records")  # Restituisce i dati come lista di dizionari
+
+        # Rimuove le prime 4 righe
+        data = data.drop(index=range(0, 4))
+
+        # Esporta i dati in formato JSON
+        data.to_json("output.json", orient="records", indent=4)
+
+        # Restituisce i dati come lista di dizionari
+        return data.to_dict(orient="records")
     except Exception as e:
+        # In caso di errore, restituisce un dizionario con il messaggio di errore
         return {"error": str(e)}
-
-#Funzione per cambiare le intestazioni del dizionario
-#def formatData(data):
-
 
 # Endpoint per ottenere i dati del foglio "IA Progetti"
 @app.route('/api/get-ia-progetti', methods=['GET'])
